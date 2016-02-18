@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.2.0.final using JasperReports Library version 6.2.0  -->
+<!-- 2015-11-24T22:12:23 -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="estados" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="18363a8b-fb0a-467e-ae9d-9a0b3b020195">
+	<property name="com.jaspersoft.studio.data.sql.tables" value="ZHJvZ2FyaWEuZXN0YWRvIEFTICwyMzAsMjksMzdkODM0MTMtYjZlNy00ZDVmLTgyZmUtOTZmMzVl&#xA;NmQ1NDJkOw=="/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="Drogaria Data Adapter "/>
+	<queryString>
+		<![CDATA[SELECT drogaria.estado.nome,
+	drogaria.estado.sigla
+FROM drogaria.estado
+ORDER BY drogaria.estado.nome ASC]]>
+	</queryString>
+	<field name="nome" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="sigla" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<title>
+		<band height="81" splitType="Stretch">
+			<image hAlign="Center">
+				<reportElement x="0" y="0" width="555" height="80" uuid="be68ef21-009a-4414-887e-40c82ee343f0">
+					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+				</reportElement>
+				<imageExpression><![CDATA["C:/Users/Alois/Documents/Java - Vídeos/Programação Web com Java/Workspace/Drogaria/src/main/webapp/resources/images/banner-frete-gratis.png"]]></imageExpression>
+			</image>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="47" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="555" height="47" uuid="5657dad4-cf91-42c6-8f93-0ffa3fcfc33c"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="18" isBold="true" isUnderline="true"/>
+					<paragraph lineSpacing="AtLeast"/>
+				</textElement>
+				<text><![CDATA[RELATÓRIO DE ESTADOS]]></text>
+			</staticText>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="30" splitType="Stretch">
+			<staticText>
+				<reportElement x="10" y="0" width="100" height="30" uuid="10740dff-1e0b-4e2d-ae48-1466ce287b87"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[NOME]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="180" y="0" width="100" height="30" uuid="9da6379c-3e54-455a-8226-7dc8ed595b58"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[SIGLA]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="40" splitType="Stretch">
+			<textField>
+				<reportElement x="10" y="10" width="100" height="30" uuid="5b651d90-053b-4a99-a709-c5fbed381d20"/>
+				<textFieldExpression><![CDATA[$F{nome}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="180" y="10" width="100" height="30" uuid="45484f42-eec7-40a9-9ce8-b09db03d7560"/>
+				<textFieldExpression><![CDATA[$F{sigla}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<pageFooter>
+		<band height="46">
+			<staticText>
+				<reportElement x="0" y="16" width="555" height="30" uuid="a26436e2-1b06-4b40-ba51-d79df2bef09d"/>
+				<box>
+					<topPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Rua Maria Leuda, 5489, Jardim Florido - CEP: 60424 - Fortaleza - Ce]]></text>
+			</staticText>
+		</band>
+	</pageFooter>
+</jasperReport>

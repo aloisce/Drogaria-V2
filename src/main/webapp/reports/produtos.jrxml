@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.2.0.final using JasperReports Library version 6.2.0  -->
+<!-- 2015-12-02T15:54:39 -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="produtos" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="32bf0b21-e13b-489b-825f-07c3b2166f0d">
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="Drogaria Data Adapter "/>
+	<parameter name="PRODUTO_DESCRICAO" class="java.lang.String"/>
+	<parameter name="FABRICANTE_DESCRICAO" class="java.lang.String">
+		<parameterDescription><![CDATA[]]></parameterDescription>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT drogaria.produto.descricao AS pdescricao,
+	drogaria.produto.preco,
+	drogaria.produto.quantidade,
+	drogaria.fabricante.descricao AS fdescricao
+FROM drogaria.produto
+	INNER JOIN drogaria.fabricante ON 
+	 drogaria.produto.fabricante_codigo = drogaria.fabricante.codigo 
+WHERE 
+	 drogaria.produto.descricao LIKE $P{PRODUTO_DESCRICAO} 
+	 AND drogaria.fabricante.descricao LIKE $P{FABRICANTE_DESCRICAO} 
+ORDER BY drogaria.produto.descricao ASC,
+	drogaria.fabricante.descricao ASC]]>
+	</queryString>
+	<field name="pdescricao" class="java.lang.String"/>
+	<field name="preco" class="java.math.BigDecimal">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="quantidade" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="fdescricao" class="java.lang.String"/>
+	<title>
+		<band height="80" splitType="Stretch">
+			<image hAlign="Center">
+				<reportElement x="0" y="0" width="555" height="80" uuid="f4dc83a4-2dd6-436a-b027-700261243966">
+					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+				</reportElement>
+				<imageExpression><![CDATA["C:/Users/Alois/Documents/Java - Vídeos/Programação Web com Java/Workspace/Drogaria/src/main/webapp/resources/images/banner-frete-gratis.png"]]></imageExpression>
+			</image>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="49" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="555" height="49" uuid="0fc02d47-8cd5-4426-847e-824345cc1233"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="18" isBold="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[RELATÓRIO DE PRODUTOS]]></text>
+			</staticText>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="30" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="180" height="30" uuid="86dfbb35-029c-48b7-a372-b241b6c58b8f"/>
+				<textElement>
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Descrição]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="190" y="0" width="100" height="30" uuid="3f02a8bb-db04-4b03-b684-cd3240b49b9e"/>
+				<textElement>
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Preço]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="300" y="0" width="100" height="30" uuid="071cc2b9-2a55-4c8a-be41-51fcee75138b"/>
+				<textElement>
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Quantidade]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="420" y="0" width="100" height="30" uuid="6177dce7-1c0f-47b8-b61e-d8b75855d855"/>
+				<textElement>
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Descrição]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="32" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="2" width="180" height="30" uuid="4d99ac22-611e-4cad-be38-238b9c4ac4b3"/>
+				<textFieldExpression><![CDATA[$F{pdescricao}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="190" y="2" width="100" height="30" uuid="35b7bca1-63a2-4d49-90a8-3e49a3f7e335"/>
+				<textFieldExpression><![CDATA[$F{preco}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="300" y="2" width="100" height="30" uuid="92cf521f-6db6-469b-97ae-0a7683fb64fe"/>
+				<textFieldExpression><![CDATA[$F{quantidade}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="420" y="2" width="100" height="30" uuid="504745bd-98f4-4aba-9c9b-01e36944f3d0"/>
+				<textFieldExpression><![CDATA[$F{fdescricao}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<pageFooter>
+		<band height="30" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="555" height="30" uuid="0e67e41a-1dc4-47ae-b5c2-20b5666939e8"/>
+				<box>
+					<topPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Rua Maria Leuda, 5489, Jardim Florido - CEP: 60424 - Fortaleza - Ce]]></text>
+			</staticText>
+		</band>
+	</pageFooter>
+</jasperReport>
