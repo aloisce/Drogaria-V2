@@ -32,6 +32,7 @@
 		<!-- Cria as tabelas do banco de dados -->
 		<property name="hbm2ddl.auto">update</property>
 
+		<!-- Mapeamento de entidades -->
 		<mapping class="br.com.alois.drogaria.domain.Estado" />
 		<mapping class="br.com.alois.drogaria.domain.Fabricante" />
 		<mapping class="br.com.alois.drogaria.domain.Cidade" />

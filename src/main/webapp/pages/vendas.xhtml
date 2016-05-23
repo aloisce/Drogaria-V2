@@ -52,7 +52,7 @@
 				<p:dataTable id="tabelaCesta"
 					emptyMessage="Nenhum registro encontrado."
 					value="#{vendaBean.itensVenda}" var="itemVenda" paginator="true"
-					rows="3" paginatorPosition="bottom">
+					rows="3" paginatorPosition="bottom" editable="true" editMode="cell">
 
 					<p:column headerText="Descrição">
 						<h:outputText value="#{itemVenda.produto.descricao}" />
@@ -65,7 +65,15 @@
 					</p:column>
 
 					<p:column headerText="Qtde">
-						<h:outputText value="#{itemVenda.quantidade}" />
+						<p:cellEditor>
+							<f:facet name="output">
+								<h:outputText value="#{itemVenda.quantidade}" />
+							</f:facet>
+							<f:facet name="input">
+								<p:inputText value="#{itemVenda.quantidade}" />
+							</f:facet>
+						</p:cellEditor>
+
 					</p:column>
 
 					<p:column headerText="Valor Parcial">
