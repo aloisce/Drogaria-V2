@@ -48,11 +48,17 @@
 				</p:dataTable>
 			</p:panel>
 
+			<p:remoteCommand name="rc"
+				actionListener="#{vendaBean.atualizarPrecoParcial}"
+				update=":formulario:tabelaCesta :formulario:painelFinalizacao" />
+
 			<p:panel header="Cesta de Compras">
 				<p:dataTable id="tabelaCesta"
 					emptyMessage="Nenhum registro encontrado."
 					value="#{vendaBean.itensVenda}" var="itemVenda" paginator="true"
 					rows="3" paginatorPosition="bottom" editable="true" editMode="cell">
+
+					<p:ajax event="cellEdit" oncomplete="rc()"/>
 
 					<p:column headerText="Descrição">
 						<h:outputText value="#{itemVenda.produto.descricao}" />
